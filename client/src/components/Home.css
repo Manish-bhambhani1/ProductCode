@@ -1,0 +1,71 @@
+
+header {
+    background-color: #fff; /* Set your desired background color */
+    border-bottom: 1px solid #ddd; /* Add a border at the bottom */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Navigation Styles */
+  ul {
+    list-style-type: none;
+    display: flex;
+    margin-left: 2rem;
+  }
+  
+  li {
+    margin-right: 1rem;
+  }
+  
+  /* User Menu Styles */
+  .user-menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .user-menu img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: 0.5rem;
+  }
+  
+  .user-menu p {
+    color: #333; /* Set your desired text color */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  /* Dropdown Styles */
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 15rem;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .dropdown a {
+    color: #333; /* Set your desired link color */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .dropdown a:hover {
+    color: #007bff; /* Set your desired link hover color */
+  }
+  

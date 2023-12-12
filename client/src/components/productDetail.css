@@ -1,0 +1,40 @@
+/* product-details.css */
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 8px;
+  }
+  
+  p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .orderActions button {
+    background-color: #ffc107; 
+    color: #333;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  .orderActions button:hover {
+    background-color: #1a1a18;
+  }
+  

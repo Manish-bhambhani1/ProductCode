@@ -1,0 +1,109 @@
+/* form.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .conta {
+    max-width: 1800px;
+    margin: 0 auto;
+    position: relative; /* Add this line to position the container relative to its normal position */
+  }
+  
+  .productImage {
+    width: 100%; /* Adjust the width of the background image */
+    height: auto; /* Maintain the aspect ratio of the background image */
+    position: absolute; /* Position the image absolutely within the container */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Move the image to the background */
+    filter: blur(5px); /* Adjust the blur intensity as needed */
+  }
+  
+  .heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333; /* Customize the color as needed */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  form:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 16px; /* Increase font size for better readability */
+    color: #555;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  input:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.7);
+  }
+  
+  /* Additional styling to make the entry box more visually appealing */
+  input[type="text"],
+  input[type="number"] {
+    padding: 14px;
+    border: 2px solid #4caf50; /* Highlight border for better focus */
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.7);
+  }
+  
+  button {
+    background-color: #095115;
+    color: #1a1818;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-family: 'Arial', sans-serif; /* Change to the desired font */
+    font-weight: bold;
+}
+  
+  button:hover {
+    background-color: #2980b9; /* Change this color code for the hover effect */
+  }
+  
+  button:active {
+    background-color: #216a94; /* Change this color code for the active state */
+  }
+  
+  /* Additional styles for barcode display */
+  img {
+    margin-top: 20px;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  

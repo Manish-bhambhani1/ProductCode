@@ -1,0 +1,103 @@
+/* header.css */
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #2c3e50; /* Set your desired background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #fff; /* Set your desired text color */
+  }
+  
+  /* Logo Styles */
+  header img {
+    width: 4rem; /* Set your desired logo width */
+  }
+  
+  /* Navigation Styles */
+  ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  li {
+    margin-right: 1.5rem; /* Set your desired margin */
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #fff; /* Set your desired text color */
+  }
+  
+  a:hover {
+    color: #ffcc00; /* Set your desired link hover color */
+  }
+  
+  /* User Menu Styles */
+  .user-menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .user-menu img {
+    width: 3rem; /* Set your desired profile photo width */
+    height: 3rem; /* Set your desired profile photo height */
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 0.5rem;
+  }
+  
+  .user-menu p {
+    font-size: 1rem;
+    color: #fff; /* Set your desired text color */
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .user-menu p:hover {
+    color: #ffcc00; /* Set your desired text hover color */
+  }
+  
+  /* Dropdown Styles */
+  .dropdown {
+    position: absolute;
+    top: 4rem; /* Set your desired top position */
+    right: 0;
+    width: 20rem; /* Set your desired dropdown width */
+    padding: 1rem;
+    gap: 1rem;
+    background-color: #fff; /* Set your desired background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dropdown a {
+    color: #333; /* Set your desired text color */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .dropdown a:hover {
+    color: #6366f1; /* Set your desired link hover color */
+  }
+  
+  .dropdown hr {
+    border: 0.5px solid #d1d5db; /* Set your desired divider color */
+    margin: 0.5rem 0;
+  }
+  nav h1 {
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: #f0e8e8; /* Customize the color as needed */
+    margin: 0; /* Remove default margin to ensure proper alignment */
+  }
+  
