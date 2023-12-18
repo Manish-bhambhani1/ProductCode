@@ -3,7 +3,8 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import Header from './Header';
 import Form from './Form';
 import ProductDetails from './ProductDetails';
-
+import BarcodeScanner from './BarcodeScanner';
+import { Helmet } from 'react-helmet';
 const Home = () => {
   const navigate = useNavigate();
  // const [productId, setProductId] = useState(null);
@@ -27,6 +28,11 @@ const Home = () => {
     <div className="w-full h-auto flex flex-col items-center justify-center bg-primary">
        
       <Header />
+      <Helmet>
+        <script src="https://cdn.rawgit.com/serratus/quaggaJS/0.12.1/dist/quagga.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/quagga@latest/dist/quagga.min.js"></script>
+
+      </Helmet>
       <Routes>
         {/* Render the Form component directly in the route */}
        
@@ -34,6 +40,7 @@ const Home = () => {
 
         {/* Render the ProductDetails component with the productId from the URL parameter */}
         <Route path="/product-details/:id" element={<ProductDetails />} />
+        <Route path="/barcode-scanner" element= {<BarcodeScanner /> } />
       </Routes>
     </div>
   );

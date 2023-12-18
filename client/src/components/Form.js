@@ -196,7 +196,7 @@ const Form = ({ onFormSubmit }) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: name === 'price' || name === 'quantity' ? parseFloat(value) : value,
+      [name]: name === 'price' || name === 'quantity' ? parseInt(value) : value,
     }));
   };
 

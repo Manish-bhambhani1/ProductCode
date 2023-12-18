@@ -11,16 +11,7 @@ app.get("/", (req, res) => {
   return res.json("Hi there");
 });
 
-const generateQRCode = async (productId) => {
-  const url = `http://localhost:5000/api/product/${productId}`;
-  try {
-    const qrCode = await QRCode.toDataURL(url);
-    return qrCode;
-  } catch (error) {
-    console.error('Error generating QR code:', error);
-    return null;
-  }
-};
+
 const QrRoute = require("./routes/auth");
 app.use("/api/", QrRoute);
 

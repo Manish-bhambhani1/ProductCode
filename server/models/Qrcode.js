@@ -9,6 +9,10 @@ const QrSchema = mongoose.Schema({
     qrcode:{
         type:String,
         required:true,
+    },
+    barcode:{
+        type:String,
+        
     }
 });
 

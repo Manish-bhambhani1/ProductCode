@@ -5,7 +5,7 @@ const generateBarcode = require('../utils/barcodeGenerator');
 const QRCode = require('../models/Qrcode');
 const router = express.Router();
 const qrCODE = require('qrcode');
-
+const mongoose= require('mongoose');
 const admin = require("../config/firebase.config");
 const user = require("../models/user");
 const Qrcode = require('../models/Qrcode');
@@ -85,7 +85,7 @@ router.get('/formData', async (req, res) => {
 
 // Add a new form entry
 router.post('/formData', async (req, res) => {
-    console.log("req.nody",req.body);
+    //console.log("req.nody",req.body);
   try {
     const productname= req.body.productName;
     const  manufacturername = req.body.manufacturerName;
@@ -93,12 +93,13 @@ router.post('/formData', async (req, res) => {
     const price = req.body.price;
     const quantity = req.body.quantity;
     const newFormEntry = new Form({ productname,  manufacturername,  description , price , quantity });
-    console.log("new form entry",newFormEntry);
+   // console.log("new form entry",newFormEntry);
     await newFormEntry.save();
-    const barcodeData = `${productname}-${manufacturername}-${price}-${quantity}`;
-    const barcodeImageBuffer = await generateBarcode(barcodeData);
-
+    
+   // console.log(barcodeImageBuffer);
     const productId = newFormEntry._id;
+    const barcodeData = `${productId}`;
+    const barcodeImageBuffer = await generateBarcode(barcodeData);
     // Respond with the newly created form entry and barcode image buffer
     res.status(201).json({
       productId,
@@ -111,6 +112,23 @@ router.post('/formData', async (req, res) => {
   }
 });
 
+//api to get particular data from form 
+router.get('/product/form/:id',async (req,res)=>{
+  try{
+    const productId = mongoose.Types.ObjectId(re.params.id);
+    console.log("product id barcode ", productId);
+    const productDetail = await Form.findById(productId);
+    //form data for barcode scanner file
+    console.log(productId);
+    console.log("product details ", productDetail); 
+    res.json(productDetail);
+
+  }
+  catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  };
+})
 
 
 // Route to get all QR codes
@@ -126,25 +144,34 @@ router.get('/product/:id', async (req, res) => {
     if (!product) {
       return res.status(404).json({ error: 'Product not found' });
     }
+    const productname = product.productname;
+    const manufacturername = product.manufacturername;
+    const price = product.price; 
+    const quantity = product.quantity;
 
     // Generate QR code for the product details route
     const qrCode = await qrCODE.toDataURL(JSON.stringify(product));
+    console.log("product id " , productId);
+    const barcodeData = `${productId}`;
+    const barcodeImageBuffer = await generateBarcode(barcodeData);
+   
    // console.log(qrCode);
     // Save QR code to the database
     const newQRCode = new Qrcode({
       productId,
       qrcode: qrCode,
+      barcode:barcodeImageBuffer.toString('base64'),
     });
-    console.log("details",product);
-    console.log("id",productId);
+    
     
     await newQRCode.save();
     const result = {
       productId,
       qrcode:qrCode,
       product,
+      barcode: barcodeImageBuffer.toString('base64'),
     }
-
+//console.log("barcode ",barcodeImageBuffer.toString('base64'));
     res.json(result);
   } catch (error) {
     console.error(error);
@@ -157,13 +184,13 @@ router.get('/alldata', async (req, res) => {
   try {
     // Fetch all forms (products) and exclude MongoDB-specific fields
     const products = await Form.find().lean();
-console.log(products);
+
     // For each product, get its QR code
     const productsWithQRCodes = await Promise.all(products.map(async (product) => {
       const productid = product._id.toString();
       const qrCode = await QRCode.findOne({productId:productid});
-      console.log(qrCode);
-      return { ...product, _id: product._id.toString(), qrCode: qrCode ? qrCode.qrcode : null };
+      const barCode= await Qrcode.findOne({productId:productid});
+      return { ...product, _id: product._id.toString(), qrCode: qrCode ? qrCode.qrcode : null ,barcode: barCode?barCode.barcode:null  };
     }));
 
     res.status(200).json(productsWithQRCodes);

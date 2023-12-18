@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "ndarray-linear-interpolate": "^1.0.0",
+    "quagga": "^0.6.16",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.21.0"
+  }
+}
